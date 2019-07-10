@@ -1,8 +1,7 @@
 package com.wcs.Controllers;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -10,9 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
-    public String getHome(HttpSession session) {
-        session.setAttribute("username", "AAA");
-        session.setAttribute("username", "AAA");
-        return "homepage";
+    public String index(Model model ) {
+        return "index";
+    }
+
+    @GetMapping("/end")
+    public String end(Model model) {
+        return "end";
     }
 }
