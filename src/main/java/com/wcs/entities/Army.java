@@ -1,6 +1,6 @@
 package main.java.com.wcs.entities;
 
-public class Boat{
+public class Army{
     private String pedalo;
     private String gonflable;
     private String barque;
@@ -38,7 +38,7 @@ public class Boat{
         this.aviron = aviron;
     }
 
-    public Boat(String pedalo, String gonflable, String barque, String aviron) {
+    public Army(String pedalo, String gonflable, String barque, String aviron) {
         this.pedalo = pedalo;
         this.gonflable = gonflable;
         this.barque = barque;
