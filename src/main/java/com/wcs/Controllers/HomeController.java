@@ -12,7 +12,6 @@ public class HomeController {
     @GetMapping("/")
     public String getHome(HttpSession session) {
         session.setAttribute("username", "AAA");
-        session.setAttribute("username", "AAA");
         return "homepage";
     }
 }
