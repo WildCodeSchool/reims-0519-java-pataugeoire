@@ -1,8 +1,7 @@
 # Compiled class file
 *.class
 
-file
-/target
+
 /.setting
 # Log file
 *.log
@@ -28,7 +27,7 @@ hs_err_pid*
 *.classpath
 *.project
 *.settings
-target/
 bin/
 *.vscode
 *.DS_STORE
+/target
