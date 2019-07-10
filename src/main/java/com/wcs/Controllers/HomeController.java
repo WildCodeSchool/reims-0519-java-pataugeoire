@@ -1,7 +1,6 @@
 package com.wcs.Controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -9,12 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
-    public String index(Model model ) {
+    public String index() {
         return "index";
     }
 
     @GetMapping("/end")
-    public String end(Model model) {
+    public String end() {
         return "end";
     }
 }
