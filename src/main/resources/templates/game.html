@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="game.css" href="../static/game.css">
 </head>
 <body>
-    <div class="board">
+    <div class="board" id="player1">
         <div class="grid">
             <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
         </div>
@@ -24,7 +24,7 @@
                 <div th:each="boat : ${boats4}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
             </div> 
     </div>
-    <div class="board">
+    <div class="board" id="player2">
         <div class="grid">
             <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
             <div class="grid boats">
