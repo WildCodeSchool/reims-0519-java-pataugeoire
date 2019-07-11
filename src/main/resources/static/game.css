@@ -1,6 +1,16 @@
+body{
+    margin-top: 45px;
+    margin-left: 15px;
+    background: url("https://3.bp.blogspot.com/-7bnydujLVTg/V1WMDEI1Y7I/AAAAAAAAKN8/tD_ogBEO65Y5j0mOfgAsZxFaRgZ0IgDdQCLcB/s1600/L1001747.jpg");
+}
+
 .board {
     position: relative;
     display: inline-block;
+    border-style: dotted;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: black;
 }
 .grid {
     --cell-size: 100px;
@@ -12,7 +22,7 @@
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: blue;
+    background-color: #3B4626;
     border: solid 1px white;
 }
 
@@ -23,9 +33,12 @@
 
 .boat {
     border-radius: 50%;
-    background-color: red;
+    background-color: #98630D;
 }
 
+.x1 {
+    grid-column-start: 1;
+}
 .x2 {
     grid-column-start: 2;
 }
@@ -39,16 +52,10 @@
     grid-column-start: 5;
 }
 .x6 {
-    grid-column-start: 2;
-}
-.x7 {
-    grid-column-start: 5;
-}
-.x8 {
     grid-column-start: 6;
 }
-.x9 {
-    grid-column-start: 1;
+.y1 {
+    grid-row-start: 1;
 }
 .y2 {
     grid-row-start: 2;
@@ -63,14 +70,5 @@
     grid-row-start: 5;
 }
 .y6 {
-    grid-row-start: 5;
-}
-.y7 {
     grid-row-start: 6;
-}
-.y8 {
-    grid-row-start: 3;
-}
-.y9 {
-    grid-row-start: 1;
 }
