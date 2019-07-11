@@ -11,6 +11,11 @@ public class GameController{
 
     @GetMapping("/game")
     public String game(Model model) {
+        int[][] boats = {
+            {2, 3},
+            {3, 4}
+        };
+        model.addAttribute("boats", boats);
         return "game";
     }
 

@@ -10,5 +10,8 @@
     <div class="grid">
         <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
     </div>
+    <div class="boats">
+        <div th:each="boat : ${boats}" class="boat" th:text="|${boat[0]} ${boat[1]}|"></div>
+    </div> 
 </body>
 </html>
