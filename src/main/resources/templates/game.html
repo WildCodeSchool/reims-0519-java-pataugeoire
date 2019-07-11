@@ -15,34 +15,13 @@
             </form>
         
         </div>
-        <div class="grid boats">
-            <div th:each="boat : ${boats1}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-        </div> 
-        <div class="grid boats">
-                <div th:each="boat : ${boats2}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-            </div> 
-        <div class="grid boats">
-                <div th:each="boat : ${boats3}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-            </div> 
-        <div class="grid boats">
-                <div th:each="boat : ${boats4}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-            </div> 
+        <!--div class="grid boats">
+            <div th:each="boat : ${boats}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
+        </div--> 
     </div>
     <div class="board" id="player2">
         <div class="grid">
             <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
-            <div class="grid boats">
-                    <div th:each="boat : ${boats5}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-                </div> 
-                <div class="grid boats">
-                        <div th:each="boat : ${boats6}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-                    </div> 
-                <div class="grid boats">
-                        <div th:each="boat : ${boats7}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-                    </div> 
-                <div class="grid boats">
-                        <div th:each="boat : ${boats8}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-                    </div> 
         </div>
     </div>
 </body>
