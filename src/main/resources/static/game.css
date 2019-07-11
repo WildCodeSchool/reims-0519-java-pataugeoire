@@ -1,6 +1,15 @@
+body{
+    margin-top: 45px;
+    margin-left: 15px;
+}
+
 .board {
     position: relative;
     display: inline-block;
+    border-style: dotted;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #F1DCB5;
 }
 .grid {
     --cell-size: 100px;
@@ -12,7 +21,7 @@
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: blue;
+    background-color: #99E5EC;
     border: solid 1px white;
 }
 
@@ -23,9 +32,12 @@
 
 .boat {
     border-radius: 50%;
-    background-color: red;
+    background-color: #FBB739;
 }
 
+.x1 {
+    grid-column-start: 1;
+}
 .x2 {
     grid-column-start: 2;
 }
@@ -39,16 +51,10 @@
     grid-column-start: 5;
 }
 .x6 {
-    grid-column-start: 2;
-}
-.x7 {
-    grid-column-start: 5;
-}
-.x8 {
     grid-column-start: 6;
 }
-.x9 {
-    grid-column-start: 1;
+.y1 {
+    grid-row-start: 1;
 }
 .y2 {
     grid-row-start: 2;
@@ -63,14 +69,5 @@
     grid-row-start: 5;
 }
 .y6 {
-    grid-row-start: 5;
-}
-.y7 {
     grid-row-start: 6;
-}
-.y8 {
-    grid-row-start: 3;
-}
-.y9 {
-    grid-row-start: 1;
 }
