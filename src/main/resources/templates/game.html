@@ -7,11 +7,13 @@
     <link rel="stylesheet" th:href="index.css" href="../static/index.css">
 </head>
 <body>
-    <div class="grid">
-        <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
+    <div class="board">
+        <div class="grid">
+            <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
+        </div>
+        <div class="grid boats">
+            <div th:each="boat : ${boats}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|">boat</div>
+        </div> 
     </div>
-    <div class="boats">
-        <div th:each="boat : ${boats}" class="boat" th:text="|${boat[0]} ${boat[1]}|"></div>
-    </div> 
 </body>
 </html>
