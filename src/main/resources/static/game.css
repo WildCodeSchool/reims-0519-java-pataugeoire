@@ -1,6 +1,7 @@
 body{
     margin-top: 45px;
     margin-left: 15px;
+    background: url("https://3.bp.blogspot.com/-7bnydujLVTg/V1WMDEI1Y7I/AAAAAAAAKN8/tD_ogBEO65Y5j0mOfgAsZxFaRgZ0IgDdQCLcB/s1600/L1001747.jpg");
 }
 
 .board {
@@ -9,7 +10,7 @@ body{
     border-style: dotted;
     border-width: 5px;
     border-radius: 10px;
-    border-color: #F1DCB5;
+    border-color: black;
 }
 .grid {
     --cell-size: 100px;
@@ -21,7 +22,7 @@ body{
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: #99E5EC;
+    background-color: #3B4626;
     border: solid 1px white;
 }
 
@@ -32,7 +33,7 @@ body{
 
 .boat {
     border-radius: 50%;
-    background-color: #FBB739;
+    background-color: #98630D;
 }
 
 .x1 {
