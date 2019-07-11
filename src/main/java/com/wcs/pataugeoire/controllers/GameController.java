@@ -59,38 +59,5 @@ public class GameController{
         model.addAttribute("boats8", boats8);
         return "game";
     }
-    @PostMapping("/game")
-    public String fight(HttpSession session, @RequestParam(required = false) String attack) {
-
-        boolean fight = true;
-
-        if(attack != null) { 
-
-            int currentOpponent = 2;
-            if(!session.getAttribute("currentPlayer").equals(1)) {
-                currentOpponent = 1;
-            }
-            
-            int hit = 0;
-            if(attack.equals("uppercut")) {
-                hit = FighterRepository.uppercut();
-            }
-            else {
-                hit = FighterRepository.punch();
-            }
-
-            if(hit > 0) {
-                session.setAttribute("lastAttackFailed", false);
-                fighterRepository.getFighterById(currentOpponent).takeHit(hit);
-            } else {
-                session.setAttribute("lastAttackFailed", true);
-            }
-
-            if(fighterRepository.getFighterById(currentOpponent).getLife() == 0) {
-                fight = false;
-            } else {
-                session.setAttribute("currentPlayer", currentOpponent);
-            }
-        }
 
 }
