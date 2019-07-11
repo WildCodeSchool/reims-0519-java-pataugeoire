@@ -21,8 +21,10 @@
     </div>
     <div class="board" id="player2">
         <div class="grid">
-            <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
+            <form th:each="i : ${#numbers.sequence(1, 36)}" class="cell" action="/game" method="POST">
+                <input type="hidden" name="id" th:value="${i}">
+                <input type="submit" value="Attack !">
+            </form>
         </div>
-    </div>
 </body>
 </html>
