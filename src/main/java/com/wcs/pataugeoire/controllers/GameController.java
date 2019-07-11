@@ -39,14 +39,44 @@ public class GameController{
             });
             session.setAttribute("boats", boats);
         }
-        int x = 2;
-        int y = 2;
-        /*for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
+        int x = id/6 + 1;
+        int y = id%6 + 1;
+        System.out.println(id + " " + x + " " + y);
+        for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
             System.out.println(boat.getX() + " " + boat.getY() + " " + boat.isDestroyed());
-        }*/
+        }
         for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
             if(boat.getX() == x && boat.getY() == y) {
                 boat.setDestroyed(true);
+            }
+        }
+        if(session.getAttribute("boats2") == null) {
+            List<Boat> boats2 = Arrays.asList(new Boat[]{
+                // boat2 1
+                new Boat(4, 1),
+                new Boat(4, 2),
+                new Boat(4, 3),
+                // boat2 2
+                new Boat(1, 1),
+                // boat2 3
+                new Boat(2, 5),
+                new Boat(3, 5),
+                new Boat(4, 5),
+                // boat2 4
+                new Boat(2, 2),
+                new Boat(2, 3)
+            });
+            session.setAttribute("boats2", boats2);
+        }
+        int x1 = id/6 + 1;
+        int y1 = id%6 + 1;
+        System.out.println(id + " " + x1 + " " + y1);
+        for(Boat boat2 : (List<Boat>)(session.getAttribute("boats2"))) {
+            System.out.println(boat2.getX() + " " + boat2.getY() + " " + boat2.isDestroyed());
+        }
+        for(Boat boat2 : (List<Boat>)(session.getAttribute("boats2"))) {
+            if(boat2.getX() == x1 && boat2.getY() == y1) {
+                boat2.setDestroyed(true);
             }
         }
         return "redirect:/game";
