@@ -1,4 +1,4 @@
-package main.java.com.wcs.entities;
+package com.wcs.entities;
 
 public class Army{
     private String pedalo;
