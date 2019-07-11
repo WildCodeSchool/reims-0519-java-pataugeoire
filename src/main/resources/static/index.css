@@ -1,0 +1,14 @@
+body{
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 2em;
+    padding-top: 10%;
+    padding-left: 50px;
+    background-image: url(http://www.fondsecran.eu/pictures/2014/0218/1/orig_366077.jpg);
+}
+.buttonOne{
+    margin-left: 30%;
+    font-size: 1.1em;
+}
+h1{
+    font-size: 1.5em;
+}
