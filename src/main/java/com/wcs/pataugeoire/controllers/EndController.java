@@ -1,4 +1,4 @@
-package com.wcs.Controllers;
+package com.wcs.pataugeoire.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +9,6 @@ public class EndController{
 
     @GetMapping("/end")
     public String getEnd(Model model){
-        return null;
+        return "end";
     }
 }
