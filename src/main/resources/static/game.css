@@ -1,0 +1,76 @@
+.board {
+    position: relative;
+    display: inline-block;
+}
+.grid {
+    --cell-size: 100px;
+    display: grid;
+    grid-template-columns: repeat(6, var(--cell-size));
+    grid-template-rows: repeat(6, var(--cell-size));
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: blue;
+    border: solid 1px white;
+}
+
+.boats {
+    position: absolute;
+    top: 0;
+}
+
+.boat {
+    border-radius: 50%;
+    background-color: red;
+}
+
+.x2 {
+    grid-column-start: 2;
+}
+.x3 {
+    grid-column-start: 3;
+}
+.x4 {
+    grid-column-start: 4;
+}
+.x5 {
+    grid-column-start: 5;
+}
+.x6 {
+    grid-column-start: 2;
+}
+.x7 {
+    grid-column-start: 5;
+}
+.x8 {
+    grid-column-start: 6;
+}
+.x9 {
+    grid-column-start: 1;
+}
+.y2 {
+    grid-row-start: 2;
+}
+.y3 {
+    grid-row-start: 3;
+}
+.y4 {
+    grid-row-start: 4;
+}
+.y5 {
+    grid-row-start: 5;
+}
+.y6 {
+    grid-row-start: 5;
+}
+.y7 {
+    grid-row-start: 6;
+}
+.y8 {
+    grid-row-start: 3;
+}
+.y9 {
+    grid-row-start: 1;
+}
