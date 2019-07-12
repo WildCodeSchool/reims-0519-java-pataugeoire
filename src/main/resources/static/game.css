@@ -1,7 +1,6 @@
 body{
     margin-top: 45px;
     margin-left: 15px;
-    background: url("https://www.fond-ecran-image.com/galerie-membre/orage/nuage-le-gris.jpg");
 }
 
 .board {
@@ -22,7 +21,7 @@ body{
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: #3B4626;
+    background-color: blue;
     border: solid 1px white;
 }
 
