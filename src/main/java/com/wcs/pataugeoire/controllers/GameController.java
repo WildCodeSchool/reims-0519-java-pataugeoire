@@ -1,8 +1,9 @@
 package com.wcs.pataugeoire.controllers;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,70 +21,57 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GameController{
 
     @PostMapping("/game")
-    public String attack(@RequestParam int id, HttpSession session) {
-        if(session.getAttribute("boats") == null) {
-            List<Boat> boats = Arrays.asList(new Boat[]{
-                // boat 1
-                new Boat(2, 1),
-                new Boat(2, 2),
-                new Boat(2, 3),
-                // boat 2
-                new Boat(6, 1),
-                // boat 3
-                new Boat(2, 6),
-                new Boat(3, 6),
-                new Boat(4, 6),
-                // boat 4
-                new Boat(5, 3),
-                new Boat(5, 4)
-            });
-            session.setAttribute("boats", boats);
-        }
-        int x = id/6 + 1;
-        int y = id%6 + 1;
-        System.out.println(id + " " + x + " " + y);
+    public String attack(@RequestParam int cellIndex, HttpSession session) {
+        int x = cellIndex%6;
+        int y = cellIndex/6;
+        session.setAttribute("attackCount", (Integer)(session.getAttribute("attackCount")) + 1);
+        System.out.println(cellIndex + " " + x + " " + y);
+        List<Boolean> grid = (List<Boolean>)(session.getAttribute("grid"));
         for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
-            System.out.println(boat.getX() + " " + boat.getY() + " " + boat.isDestroyed());
-        }
-        for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
-            if(boat.getX() == x && boat.getY() == y) {
+           if(boat.getX() == (x+1) && boat.getY() == (y+1)) {
                 boat.setDestroyed(true);
+                
             }
         }
-        if(session.getAttribute("boats2") == null) {
-            List<Boat> boats2 = Arrays.asList(new Boat[]{
-                // boat2 1
-                new Boat(4, 1),
-                new Boat(4, 2),
-                new Boat(4, 3),
-                // boat2 2
-                new Boat(1, 1),
-                // boat2 3
-                new Boat(2, 5),
-                new Boat(3, 5),
-                new Boat(4, 5),
-                // boat2 4
-                new Boat(2, 2),
-                new Boat(2, 3)
-            });
-            session.setAttribute("boats2", boats2);
+        boolean won = true;
+        for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
+            won = won && boat.isDestroyed();
         }
-        int x1 = id/6 + 1;
-        int y1 = id%6 + 1;
-        System.out.println(id + " " + x1 + " " + y1);
-        for(Boat boat2 : (List<Boat>)(session.getAttribute("boats2"))) {
-            System.out.println(boat2.getX() + " " + boat2.getY() + " " + boat2.isDestroyed());
+        grid.set(cellIndex, true);
+
+        if(won) {
+            return "redirect:/end";
         }
-        for(Boat boat2 : (List<Boat>)(session.getAttribute("boats2"))) {
-            if(boat2.getX() == x1 && boat2.getY() == y1) {
-                boat2.setDestroyed(true);
-            }
+        else {
+            return "redirect:/game";
         }
-        return "redirect:/game";
     }
 
     @GetMapping("/game")
-    public String game(Model model) {
+    public String game(Model model, HttpSession session) {
+        int gridSize = 6;
+        if(session.getAttribute("attackCount") == null) {
+            session.setAttribute("attackCount", 0);
+        }
+        if(session.getAttribute("grid") == null) {
+            Boolean[] wasAttacked = new Boolean[gridSize*gridSize];
+            Arrays.fill(wasAttacked, false);
+            List<Boolean> grid = Arrays.asList(wasAttacked);
+            session.setAttribute("grid", grid);
+        }
+        if(session.getAttribute("boats") == null) {
+            List<Integer> xValues = Arrays.asList(new Integer[]{1, 2, 3, 4, 5, 6});
+            List<Integer> yValues = Arrays.asList(new Integer[]{1, 2, 3, 4, 5, 6});
+            Collections.shuffle(xValues);
+            Collections.shuffle(yValues);
+            List<Boat> boats = new ArrayList<Boat>();
+            for(int i = 0; i < xValues.size(); i++) {
+                boats.add(new Boat(xValues.get(i), yValues.get(i)));
+            }
+            session.setAttribute("boats", boats);
+        }
+        model.addAttribute("grid", session.getAttribute("grid"));
+        model.addAttribute("boats", session.getAttribute("boats"));
         return "game";
     }
 
