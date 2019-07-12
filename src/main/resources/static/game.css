@@ -1,6 +1,7 @@
 body{
     margin-top: 45px;
     margin-left: 15px;
+    background: url("https://i.etsystatic.com/16851582/r/il/235a28/1703320657/il_fullxfull.1703320657_bj7z.jpg");
 }
 
 .board {
@@ -10,6 +11,7 @@ body{
     border-width: 5px;
     border-radius: 10px;
     border-color: black;
+    opacity: 0.8;
 }
 .grid {
     --cell-size: 100px;
@@ -21,23 +23,25 @@ body{
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: blue;
+    background-color: #2C66A7;
     border: solid 1px white;
 }
 
 .boats {
     position: absolute;
     top: 0;
+    pointer-events: none;
 }
 
 .boat {
     border-radius: 50%;
-    background-color: #98630D;
+    background-image: url("../donut.png");
+    background-size: cover;
 }
-
 .x1 {
     grid-column-start: 1;
 }
+
 .x2 {
     grid-column-start: 2;
 }
@@ -70,4 +74,10 @@ body{
 }
 .y6 {
     grid-row-start: 6;
+}
+
+img {
+    max-width: 80px;
+    margin-left: 10px;
+    margin-top: 20px;
 }
