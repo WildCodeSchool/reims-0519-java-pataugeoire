@@ -893,4 +893,9 @@ html, body {
       right: 50px;
       top: -90px;
   }
+
+  p{
+    padding-left: 1em;
+    
+  }
   
