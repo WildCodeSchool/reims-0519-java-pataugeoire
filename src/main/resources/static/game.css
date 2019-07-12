@@ -1,7 +1,7 @@
 body{
     margin-top: 45px;
     margin-left: 15px;
-    background: url("https://3.bp.blogspot.com/-7bnydujLVTg/V1WMDEI1Y7I/AAAAAAAAKN8/tD_ogBEO65Y5j0mOfgAsZxFaRgZ0IgDdQCLcB/s1600/L1001747.jpg");
+    background: url("https://i.etsystatic.com/16851582/r/il/235a28/1703320657/il_fullxfull.1703320657_bj7z.jpg");
 }
 
 .board {
@@ -11,6 +11,7 @@ body{
     border-width: 5px;
     border-radius: 10px;
     border-color: black;
+    opacity: 0.8;
 }
 .grid {
     --cell-size: 100px;
@@ -22,7 +23,7 @@ body{
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: #3B4626;
+    background-color: #2C66A7;
     border: solid 1px white;
 }
 
@@ -33,7 +34,7 @@ body{
 
 .boat {
     border-radius: 50%;
-    background-color: #98630D;
+    background-color: #7A7E83;
 }
 
 .x1 {
@@ -72,3 +73,4 @@ body{
 .y6 {
     grid-row-start: 6;
 }
+
