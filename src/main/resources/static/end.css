@@ -1,0 +1,38 @@
+img.a{
+    transform-origin: 50% 50%;
+    animation: 1s rotateA infinite linear;
+}
+img.b{
+    transform-origin: 50% 50%;
+    animation: 0.9S rotateA infinite linear;
+}
+img.c{
+    transform-origin: 50% 50%;
+    animation: 0.8s  rotateA infinite linear;
+}
+img.d{
+    transform-origin: 50% 50%;
+    animation: 0.7s  rotateA infinite linear;
+}
+img.e{
+    transform-origin: 50% 50%;
+    animation: 0.6s  rotateA infinite linear;
+}
+img.f{
+    transform-origin: 50% 50%;
+    animation: 0.5s  rotateA infinite linear;
+}img.g{
+    transform-origin: 50% 50%;
+    animation: 0.4s  rotateA infinite linear;
+}img.h{
+    transform-origin: 50% 50%;
+    animation: 0.3s  rotateA infinite linear;
+}img.i{
+    transform-origin: 50% 50%;
+    animation: 0.2s  rotateA infinite linear;
+}
+@keyframes rotateA{
+    100%{
+        transform: rotate(360deg);
+    }
+}
