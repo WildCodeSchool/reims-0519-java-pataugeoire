@@ -9,11 +9,7 @@
 <body>
     <div class="board" id="player1">
         <div class="grid">
-            <form th:each="i : ${#numbers.sequence(1, 36)}" class="cell" action="/game" method="POST">
-                <input type="hidden" name="id" th:value="${i}">
-                <input type="submit" value="Attack !">
-            </form>
-        
+            <div th:each="i : ${#numbers.sequence(1, 36)}" class="cell"></div>
         </div>
         <div class="grid boats">
             <div th:each="boat : ${boats1}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
