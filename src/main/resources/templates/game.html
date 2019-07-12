@@ -9,9 +9,10 @@
 <body>
     <div class="board" id="player1">
         <div class="grid">
-            <form th:each="i : ${#numbers.sequence(0, 35)}" class="cell" action="/game" method="POST">
-                <input type="hidden" name="id" th:value="${i}">
-                <input type="submit" value="Attack !">
+            <form th:each="wasAttacked, itemStat : ${grid}" class="cell" action="/game" method="POST">
+                <input type="hidden" name="cellIndex" th:value="${itemStat.index}">
+                <img th:if="${wasAttacked}" src="../images/cross.png"/>
+                <input th:unless="${wasAttacked}" type="submit" value="Attack !">
             </form>
         
         </div>

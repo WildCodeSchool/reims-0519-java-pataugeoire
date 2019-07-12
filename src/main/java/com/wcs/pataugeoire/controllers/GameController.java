@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GameController{
 
     @PostMapping("/game")
-    public String attack(@RequestParam int id, HttpSession session) {
+    public String attack(@RequestParam int cellIndex, HttpSession session) {
         if(session.getAttribute("boats") == null) {
             List<Boat> boats = Arrays.asList(new Boat[]{
                 // boat 1
@@ -39,9 +39,9 @@ public class GameController{
             });
             session.setAttribute("boats", boats);
         }
-        int x = id/6 + 1;
-        int y = id%6 + 1;
-        System.out.println(id + " " + x + " " + y);
+        int x = cellIndex/6;
+        int y = cellIndex%6;
+        System.out.println(cellIndex + " " + x + " " + y);
         for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
             System.out.println(boat.getX() + " " + boat.getY() + " " + boat.isDestroyed());
         }
@@ -50,7 +50,9 @@ public class GameController{
                 boat.setDestroyed(true);
             }
         }
-        if(session.getAttribute("boats2") == null) {
+        List<Boolean> grid = (List<Boolean>)(session.getAttribute("grid"));
+        grid.set(cellIndex, true);
+        /*if(session.getAttribute("boats2") == null) {
             List<Boat> boats2 = Arrays.asList(new Boat[]{
                 // boat2 1
                 new Boat(4, 1),
@@ -78,12 +80,19 @@ public class GameController{
             if(boat2.getX() == x1 && boat2.getY() == y1) {
                 boat2.setDestroyed(true);
             }
-        }
+        }*/
         return "redirect:/game";
     }
 
     @GetMapping("/game")
-    public String game(Model model) {
+    public String game(Model model, HttpSession session) {
+        if(session.getAttribute("grid") == null) {
+            Boolean[] wasAttacked = new Boolean[36];
+            Arrays.fill(wasAttacked, false);
+            List<Boolean> grid = Arrays.asList(wasAttacked);
+            session.setAttribute("grid", grid);
+        }
+        model.addAttribute("grid", session.getAttribute("grid"));
         return "game";
     }
 
