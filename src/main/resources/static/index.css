@@ -39,12 +39,12 @@ html, body {
     background: yellow;
     top: 100%;
     right: 0%;
-    -webkit-animation: day13 12s linear infinite;
-    -moz-animation: day1 12s linear infinite;
-    -o-animation: day1 12s linear infinite;
-    -ms-animation: day1 12s linear infinite;
-    transition: day1 12s linear infinite;
-    z-index: 12;
+    -webkit-animation: day13 30s linear infinite;
+    -moz-animation: day1 30s linear infinite;
+    -o-animation: day1 30s linear infinite;
+    -ms-animation: day1 30s linear infinite;
+    transition: day1 30s linear infinite;
+    z-index: 4;
   }
   
   @-webkit-keyframes day13 {

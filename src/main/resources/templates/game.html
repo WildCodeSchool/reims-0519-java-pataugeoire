@@ -20,12 +20,6 @@
             <div th:each="boat : ${boats}" th:if="${boat.isDestroyed()}" class="boat" th:class="|cell boat x${boat.x} y${boat.y}|"></div>
         </div> 
     </div>
-    <div class="board" id="player2">
-        <div class="grid">
-            <form th:each="wasAttacked, itemStat : ${grid}" class="cell" action="/game" method="POST">
-                <input type="hidden" name="cellIndex" th:value="${itemStat.index}">
-                <img th:if="${wasAttacked}" src="../images/cross.png"/>
-                <input th:unless="${wasAttacked}" type="submit" value="Attack !">
-            </form>
+
 </body>
 </html>

@@ -23,11 +23,7 @@ body{
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-<<<<<<< HEAD
-    background-color: blue;
-=======
     background-color: #2C66A7;
->>>>>>> e5b70e7072922fbbfef5fd26d4e5cb2ef87b35c9
     border: solid 1px white;
 }
 
@@ -80,11 +76,8 @@ body{
     grid-row-start: 6;
 }
 
-<<<<<<< HEAD
 img {
     max-width: 80px;
     margin-left: 10px;
     margin-top: 20px;
 }
-=======
->>>>>>> e5b70e7072922fbbfef5fd26d4e5cb2ef87b35c9

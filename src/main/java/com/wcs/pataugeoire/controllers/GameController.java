@@ -24,6 +24,7 @@ public class GameController{
     public String attack(@RequestParam int cellIndex, HttpSession session) {
         int x = cellIndex%6;
         int y = cellIndex/6;
+        session.setAttribute("attackCount", (Integer)(session.getAttribute("attackCount")) + 1);
         System.out.println(cellIndex + " " + x + " " + y);
         List<Boolean> grid = (List<Boolean>)(session.getAttribute("grid"));
         for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
@@ -32,17 +33,26 @@ public class GameController{
                 
             }
         }
+        boolean won = true;
         for(Boat boat : (List<Boat>)(session.getAttribute("boats"))) {
-            System.out.println(boat.getX() + " " + boat.getY() + " " + boat.isDestroyed());
+            won = won && boat.isDestroyed();
         }
         grid.set(cellIndex, true);
-        
-        return "redirect:/game";
+
+        if(won) {
+            return "redirect:/end";
+        }
+        else {
+            return "redirect:/game";
+        }
     }
 
     @GetMapping("/game")
     public String game(Model model, HttpSession session) {
         int gridSize = 6;
+        if(session.getAttribute("attackCount") == null) {
+            session.setAttribute("attackCount", 0);
+        }
         if(session.getAttribute("grid") == null) {
             Boolean[] wasAttacked = new Boolean[gridSize*gridSize];
             Arrays.fill(wasAttacked, false);
