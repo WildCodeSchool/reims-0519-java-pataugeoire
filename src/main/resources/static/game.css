@@ -29,6 +29,7 @@ body{
 .boats {
     position: absolute;
     top: 0;
+    pointer-events: none;
 }
 
 .boat {

@@ -16,9 +16,9 @@
             </form>
         
         </div>
-        <!--div class="grid boats">
-            <div th:each="boat : ${boats}" class="boat" th:class="|cell boat x${boat[0]} y${boat[1]}|"></div>
-        </div--> 
+        <div class="grid boats">
+            <div th:each="boat : ${boats}" th:if="${boat.isDestroyed()}" class="boat" th:class="|cell boat x${boat.x} y${boat.y}|"></div>
+        </div> 
     </div>
     <div class="board" id="player2">
         <div class="grid">
